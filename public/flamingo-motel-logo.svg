@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" fill="none">
+  <!-- Flamingo bird silhouette -->
+  <g transform="translate(4, 4)">
+    <!-- Body -->
+    <ellipse cx="28" cy="36" rx="14" ry="9" fill="#e8857a" transform="rotate(-12 28 36)"/>
+    <!-- Neck curve -->
+    <path d="M 34 28 C 36 22 40 16 42 11 C 43 8 41 5 38 6 C 36 7 36 10 37 13 C 35 19 31 25 30 29 Z" fill="#e8857a"/>
+    <!-- Head -->
+    <circle cx="39" cy="7" r="5" fill="#e8857a"/>
+    <!-- Beak - kinked flamingo style -->
+    <path d="M 43 6 L 51 7.5 L 48 10 L 43 8 Z" fill="#c9a84c"/>
+    <circle cx="41" cy="6" r="1.2" fill="#0a1628"/>
+    <!-- Wing highlight -->
+    <path d="M 15 33 C 18 40 24 42 30 41 C 24 36 19 34 15 33 Z" fill="#c9a84c" opacity="0.55"/>
+    <!-- Standing leg -->
+    <line x1="27" y1="45" x2="25" y2="56" stroke="#c9a84c" stroke-width="2.2" stroke-linecap="round"/>
+    <!-- Raised leg bent -->
+    <line x1="30" y1="45" x2="33" y2="52" stroke="#c9a84c" stroke-width="2.2" stroke-linecap="round"/>
+    <line x1="33" y1="52" x2="37" y2="50" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+    <!-- Foot -->
+    <line x1="25" y1="56" x2="20" y2="58" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="25" y1="56" x2="25" y2="59" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="25" y1="56" x2="29" y2="58" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="66" y="28" font-family="Georgia, serif" font-size="18" font-weight="400" letter-spacing="2" fill="#f5f0e8">FLAMINGO</text>
+  <text x="66" y="47" font-family="Georgia, serif" font-size="12" font-weight="300" letter-spacing="5" fill="#c9a84c">MOTEL</text>
+  <!-- Thin divider line -->
+  <line x1="60" y1="12" x2="60" y2="52" stroke="#c9a84c" stroke-width="0.8" opacity="0.6"/>
+</svg>
