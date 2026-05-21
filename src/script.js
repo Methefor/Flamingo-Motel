@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import { TRANSLATIONS } from './translations.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -135,14 +136,185 @@ function initCardHover() {
   });
 }
 
+// ── PRELOADER ─────────────────────────────────────────────────────────────
+function initPreloader() {
+  const pl = document.getElementById('preloader');
+  if (!pl) { initHeroEntrance(); return; }
+
+  const start = () => {
+    setTimeout(() => {
+      pl.classList.add('done');
+      setTimeout(initHeroEntrance, 700);
+    }, 1800);
+  };
+
+  if (document.readyState === 'complete') {
+    start();
+  } else {
+    window.addEventListener('load', start, { once: true });
+  }
+}
+
+// ── FLOATING WHATSAPP BUTTON ──────────────────────────────────────────────
+function initFAB() {
+  const fab = document.getElementById('whatsappFab');
+  if (!fab) return;
+  ScrollTrigger.create({
+    start: '100vh top',
+    onEnter:     () => fab.classList.add('visible'),
+    onLeaveBack: () => fab.classList.remove('visible'),
+  });
+}
+
+// ── PHOTO GALLERY + LIGHTBOX ──────────────────────────────────────────────
+function initGallery() {
+  const thumbs = Array.from(document.querySelectorAll('.gallery-thumb'));
+  const lb     = document.getElementById('lightbox');
+  const lbImg  = document.getElementById('lbImg');
+  const lbCtr  = document.getElementById('lbCounter');
+  if (!thumbs.length || !lb) return;
+
+  let current = 0;
+  const total = thumbs.length;
+
+  const open = i => {
+    current = ((i % total) + total) % total;
+    lbImg.src = thumbs[current].dataset.src;
+    lbImg.alt = thumbs[current].getAttribute('aria-label') || '';
+    if (lbCtr) lbCtr.textContent = `${current + 1} / ${total}`;
+    lb.classList.add('active');
+    lb.removeAttribute('aria-hidden');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const close = () => {
+    lb.classList.remove('active');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    setTimeout(() => { lbImg.src = ''; }, 350);
+  };
+
+  thumbs.forEach((t, i) => t.addEventListener('click', () => open(i)));
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbPrev').addEventListener('click',  () => open(current - 1));
+  document.getElementById('lbNext').addEventListener('click',  () => open(current + 1));
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('active')) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  open(current - 1);
+    if (e.key === 'ArrowRight') open(current + 1);
+  });
+}
+
+// ── LANGUAGE SWITCHER ─────────────────────────────────────────────────────
+let currentLang = localStorage.getItem('fm-lang') || 'tr';
+
+function applyLang(lang) {
+  const T   = TRANSLATIONS[lang] || TRANSLATIONS.tr;
+  const txt = (sel, key) => { const el = document.querySelector(sel); if (el) el.textContent = T[key]; };
+  const htm = (sel, key) => { const el = document.querySelector(sel); if (el) el.innerHTML   = T[key]; };
+
+  // Nav
+  txt('.nav-cta', 'nav.cta');
+  document.querySelectorAll('.nav-links a').forEach((a, i) => {
+    const k = `nav.tip.${i + 1}`;
+    if (T[k]) a.dataset.label = T[k];
+  });
+
+  // Hero
+  txt('.hero-label',    'hero.label');
+  txt('.line-1',        'hero.line1');
+  txt('.line-2 em',     'hero.line2');
+  htm('.hero-sub',      'hero.sub');
+  txt('.btn-ghost',     'hero.cta.ghost');
+  txt('.minimap-label', 'hero.maplabel');
+  const heroCta = document.querySelector('.hero-cta-row .btn-primary');
+  if (heroCta) heroCta.lastChild.textContent = ' ' + T['hero.cta.main'];
+
+  // Reviews
+  txt('.section-reviews .section-eyebrow', 'r.eyebrow');
+  htm('.section-reviews .section-heading', 'r.heading');
+  txt('.reviews-intro', 'r.intro');
+
+  // Services
+  txt('.section-practice .section-eyebrow', 's.eyebrow');
+  htm('.section-practice .section-heading', 's.heading');
+  document.querySelectorAll('.practice-name').forEach((el, i) => { el.textContent = T[`s.0${i+1}.n`] || el.textContent; });
+  document.querySelectorAll('.practice-desc').forEach((el, i) => { el.textContent = T[`s.0${i+1}.d`] || el.textContent; });
+
+  // Rooms
+  txt('.section-field .section-eyebrow', 'rm.eyebrow');
+  htm('.section-field .section-heading', 'rm.heading');
+  document.querySelectorAll('.field-card-client').forEach((el, i) => { el.textContent = T[`rm.c${i+1}`] || el.textContent; });
+  txt('.field-cta .btn-primary', 'rm.cta');
+
+  // Gallery
+  txt('.section-gallery .section-eyebrow', 'g.eyebrow');
+  htm('.section-gallery .section-heading', 'g.heading');
+
+  // Approach
+  txt('.section-approach .section-eyebrow', 'ap.eyebrow');
+  htm('.section-approach .section-heading', 'ap.heading');
+  document.querySelectorAll('.approach-col h3').forEach((el, i) => { el.textContent = T[`ap.c${i+1}.h`] || el.textContent; });
+  document.querySelectorAll('.approach-col p').forEach((el,  i) => { el.textContent = T[`ap.c${i+1}.p`] || el.textContent; });
+
+  // Contact
+  txt('.section-conversation .section-eyebrow', 'c.eyebrow');
+  htm('.conversation-heading', 'c.heading');
+  txt('.conversation-sub',     'c.sub');
+  const lbls = document.querySelectorAll('.contact-info-label');
+  if (lbls[0]) lbls[0].textContent = T['c.addr.lbl'];
+  if (lbls[1]) lbls[1].textContent = T['c.phone.lbl'];
+  if (lbls[2]) lbls[2].textContent = T['c.links.lbl'];
+  const addrEl = document.querySelector('.contact-info-block p:not(.contact-info-label)');
+  if (addrEl) addrEl.innerHTML = T['c.addr.val'];
+
+  // Footer
+  const ftSpans = document.querySelectorAll('.site-footer span');
+  if (ftSpans[2]) ftSpans[2].textContent = T['footer.rights'];
+
+  // FAB aria
+  const fab = document.getElementById('whatsappFab');
+  if (fab) fab.setAttribute('aria-label', T['fab.label']);
+
+  currentLang = lang;
+  localStorage.setItem('fm-lang', lang);
+  document.documentElement.lang = lang;
+}
+
+function initLangSwitcher() {
+  const btns = document.querySelectorAll('.lang-btn');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      applyLang(btn.dataset.lang);
+    });
+  });
+
+  if (currentLang !== 'tr') {
+    const saved = document.querySelector(`.lang-btn[data-lang="${currentLang}"]`);
+    if (saved) {
+      btns.forEach(b => b.classList.remove('is-active'));
+      saved.classList.add('is-active');
+      applyLang(currentLang);
+    }
+  }
+}
+
 // ── BOOT ─────────────────────────────────────────────────────────────────
 function boot() {
   initSlideshow();
-  initHeroEntrance();
   initClock();
   initNavEffect();
   initCardHover();
   initRevealAnimations();
+  initFAB();
+  initGallery();
+  initLangSwitcher();
+  initPreloader(); // triggers hero entrance after logo animates out
 }
 
 if (document.readyState === 'loading') {

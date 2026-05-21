@@ -6,6 +6,64 @@
   <title>Flamingo Motel — Güneyli, Gelibolu</title>
   <meta name="description" content="Flamingo Motel, Gelibolu yarımadasında denize adım başı, yarım pansiyon konaklama. Güneyli köyü, Çanakkale." />
 
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://flamingo-motel.vercel.app" />
+  <meta property="og:title"       content="Flamingo Motel — Güneyli, Gelibolu" />
+  <meta property="og:description" content="Ufka en yakın yer. Deniz sesi uyanır, kahvaltı sofrası hazır. Gelibolu yarımadasında eşsiz konaklama." />
+  <meta property="og:image"       content="https://flamingo-motel.vercel.app/Flamingo%20motel%20ai.png" />
+  <meta property="og:locale"      content="tr_TR" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="Flamingo Motel — Güneyli, Gelibolu" />
+  <meta name="twitter:description" content="Ufka en yakın yer. Deniz sesi uyanır, kahvaltı sofrası hazır." />
+  <meta name="twitter:image"      content="https://flamingo-motel.vercel.app/Flamingo%20motel%20ai.png" />
+
+  <!-- Schema.org — LodgingBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Flamingo Motel",
+    "description": "Gelibolu yarımadasında denize adım başı, yarım pansiyon konaklama. Güneyli köyü, Çanakkale.",
+    "url": "https://flamingo-motel.vercel.app",
+    "telephone": "+905345001188",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Atatürk Sokak No:12",
+      "addressLocality": "Güneyli",
+      "addressRegion": "Çanakkale",
+      "addressCountry": "TR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.4030,
+      "longitude": 26.6786
+    },
+    "image": [
+      "https://flamingo-motel.vercel.app/Drone%20%C3%A7ekimi%20ai.png",
+      "https://flamingo-motel.vercel.app/G%C3%BCneyli%20denizi%20ai.png",
+      "https://flamingo-motel.vercel.app/Flamingo%20motel%20ai.png"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "116",
+      "bestRating": "5"
+    },
+    "servesCuisine": "Turkish",
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi",     "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Breakfast",      "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Sea View",       "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Beach Access",   "value": true }
+    ],
+    "sameAs": [
+      "https://instagram.com/flamingomotelgelibolu",
+      "https://wa.me/905345001188"
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -13,6 +71,15 @@
   <link rel="stylesheet" href="/src/styles.css" />
 </head>
 <body>
+
+  <!-- ── PRELOADER ─────────────────────────────────────────────────────── -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <img src="/flamingo-motel-logo.svg" alt="Flamingo Motel" class="preloader-logo" />
+      <div class="preloader-bar"></div>
+      <p class="preloader-tagline">Güneyli · Gelibolu</p>
+    </div>
+  </div>
 
   <!-- ── NAV ──────────────────────────────────────────────────────────── -->
   <nav class="site-nav" id="site-nav">
@@ -26,6 +93,12 @@
       <li><a href="#approach" data-label="Felsefemiz">IV</a></li>
       <li><a href="#contact"  data-label="İletişim">V</a></li>
     </ul>
+    <div class="lang-switcher" role="group" aria-label="Dil seçimi">
+      <button class="lang-btn is-active" data-lang="tr">TR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="bg">BG</button>
+      <button class="lang-btn" data-lang="el">EL</button>
+    </div>
     <a href="https://wa.me/905345001188" target="_blank" rel="noopener" class="nav-cta">Randevu Al</a>
   </nav>
 
@@ -200,6 +273,29 @@
       </div>
     </section>
 
+    <!-- · GALLERY -->
+    <section class="section-gallery" id="gallery">
+      <div class="section-inner">
+        <div class="section-index reveal-text">·</div>
+        <div class="gallery-body">
+          <p class="section-eyebrow reveal-text">Fotoğraflar</p>
+          <h2 class="section-heading reveal-text">Flamingo'yu<br>Keşfet</h2>
+          <div class="gallery-grid">
+            <button class="gallery-thumb reveal-text" data-src="/Drone%20%C3%A7ekimi%20ai.png" style="background-image:url('/Drone%20%C3%A7ekimi%20ai.png')" aria-label="Drone çekimi"></button>
+            <button class="gallery-thumb reveal-text" data-src="/G%C3%BCneyli%20denizi%20ai.png" style="background-image:url('/G%C3%BCneyli%20denizi%20ai.png')" aria-label="Güneyli denizi"></button>
+            <button class="gallery-thumb reveal-text" data-src="/Flamingo%20motel%20ai.png" style="background-image:url('/Flamingo%20motel%20ai.png')" aria-label="Flamingo motel"></button>
+            <button class="gallery-thumb reveal-text" data-src="/images/img4.png" style="background-image:url('/images/img4.png')" aria-label="Oda"></button>
+            <button class="gallery-thumb reveal-text" data-src="/images/img5.png" style="background-image:url('/images/img5.png')" aria-label="Oda 2"></button>
+            <button class="gallery-thumb reveal-text" data-src="/images/img6.png" style="background-image:url('/images/img6.png')" aria-label="Oda 3"></button>
+            <button class="gallery-thumb reveal-text" data-src="/images/img7.png" style="background-image:url('/images/img7.png')" aria-label="Dış alan"></button>
+            <button class="gallery-thumb reveal-text" data-src="/images/img8.png" style="background-image:url('/images/img8.png')" aria-label="Kahvaltı"></button>
+            <button class="gallery-thumb reveal-text" data-src="/images/img9.png" style="background-image:url('/images/img9.png')" aria-label="Bahçe"></button>
+            <button class="gallery-thumb reveal-text" data-src="/images/img10.png" style="background-image:url('/images/img10.png')" aria-label="Kahvaltı alanı"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- IV · APPROACH -->
     <section class="section-approach" id="approach">
       <div class="section-inner">
@@ -225,6 +321,17 @@
           <h2 class="conversation-heading reveal-text">Rezervasyon &amp;<br />Bilgi Alın.</h2>
           <p class="conversation-sub reveal-text">Rezervasyon, fiyat ve uygunluk sorularınız için WhatsApp'tan bize ulaşabilirsiniz. En kısa sürede yanıt vereceğiz.</p>
           <a href="https://wa.me/905345001188" target="_blank" rel="noopener" class="conversation-email reveal-text">+90 534 500 11 88</a>
+          <div class="contact-map-wrap reveal-text">
+            <iframe
+              class="contact-map"
+              src="https://maps.google.com/maps?q=40.4030,26.6786&z=15&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Flamingo Motel — Güneyli, Gelibolu">
+            </iframe>
+          </div>
+
           <div class="conversation-meta reveal-text">
             <div class="contact-info-block">
               <p class="contact-info-label">Adres</p>
@@ -252,6 +359,28 @@
       </footer>
     </section>
 
+  </div>
+
+  <!-- ── FLOATING WHATSAPP BUTTON ──────────────────────────────────────── -->
+  <a href="https://wa.me/905345001188"
+     class="whatsapp-fab"
+     id="whatsappFab"
+     target="_blank"
+     rel="noopener"
+     aria-label="WhatsApp ile ulaş">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M11.99 2C6.469 2 2 6.486 2 12.023c0 1.76.454 3.414 1.243 4.857L2.05 21.965l5.224-1.38A9.95 9.95 0 0 0 12 21.987c5.521 0 9.99-4.486 9.99-10.023C21.99 6.468 17.511 2 11.99 2zm0 18.389a8.29 8.29 0 0 1-4.223-1.151l-.302-.18-3.1.819.828-3.028-.196-.312A8.318 8.318 0 0 1 3.67 12c0-4.609 3.75-8.357 8.32-8.357 4.569 0 8.32 3.748 8.32 8.357 0 4.609-3.751 8.357-8.32 8.357z"/>
+    </svg>
+  </a>
+
+  <!-- ── LIGHTBOX ───────────────────────────────────────────────────────── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotoğraf görüntüleyici" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Kapat">×</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Önceki">‹</button>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Sonraki">›</button>
+    <img class="lb-img" id="lbImg" src="" alt="" />
+    <div class="lb-counter" id="lbCounter">1 / 10</div>
   </div>
 
   <script type="module" src="/src/script.js"></script>
