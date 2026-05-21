@@ -427,6 +427,8 @@ section { position: relative; }
   grid-template-columns: 80px 1fr;
   gap: 0 3rem;
   align-items: start;
+  position: relative;
+  z-index: 2;
 }
 
 .section-index {
@@ -460,6 +462,20 @@ section { position: relative; }
 /* ── I · REVIEWS ──────────────────────────────────────────────────────── */
 .section-reviews {
   border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.section-reviews::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(10,9,7,0.80) 0%, rgba(10,9,7,0.75) 100%),
+    url("/G%C3%BCneyli%20denizi%20ai.png");
+  background-size: auto, cover;
+  background-position: center, center 55%;
+  filter: saturate(1.20) contrast(1.06);
 }
 
 .reviews-body {
@@ -576,6 +592,20 @@ section { position: relative; }
 .section-practice {
   border-top: 1px solid var(--border);
   background: #0d0b09;
+  overflow: hidden;
+}
+
+.section-practice::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(10,9,7,0.82) 0%, rgba(10,9,7,0.78) 100%),
+    url("/Drone%20%C3%A7ekimi%20ai.png");
+  background-size: auto, cover;
+  background-position: center, center;
+  filter: saturate(1.15) contrast(1.05);
 }
 
 .practice-grid { display: flex; flex-direction: column; }
@@ -622,7 +652,23 @@ section { position: relative; }
 }
 
 /* ── III · ROOMS ──────────────────────────────────────────────────────── */
-.section-field { border-top: 1px solid var(--border); }
+.section-field {
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.section-field::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(10,9,7,0.84) 0%, rgba(10,9,7,0.80) 100%),
+    url("/Flamingo%20motel%20ai.png");
+  background-size: auto, cover;
+  background-position: center, center;
+  filter: saturate(1.15) contrast(1.06);
+}
 
 .field-grid {
   display: grid;
@@ -681,6 +727,27 @@ section { position: relative; }
 .section-approach {
   border-top: 1px solid var(--border);
   background: #0d0b09;
+  overflow: hidden;
+}
+
+/* Creative CSS background: diagonal amber hairlines + warm/cool radial glows */
+.section-approach::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    repeating-linear-gradient(
+      -52deg,
+      transparent 0px,
+      transparent 52px,
+      rgba(184,122,61,0.045) 52px,
+      rgba(184,122,61,0.045) 54px
+    ),
+    radial-gradient(ellipse 70% 60% at 92% 8%,  rgba(184,122,61,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 45% at 6%  92%, rgba(8,55,80,0.28)   0%, transparent 55%),
+    radial-gradient(ellipse 35% 35% at 50% 50%, rgba(184,122,61,0.04) 0%, transparent 70%),
+    #0d0b09;
 }
 
 .approach-cols {
@@ -712,6 +779,36 @@ section { position: relative; }
   border-top: 1px solid var(--border);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+/* Blurred coastal photo — ambient depth behind content */
+.section-conversation::before {
+  content: '';
+  position: absolute;
+  inset: -40px;
+  z-index: 0;
+  background: url("/G%C3%BCneyli%20denizi%20ai.png") center / cover no-repeat;
+  filter: blur(28px) brightness(0.13) saturate(0.55);
+}
+
+/* Scan-line texture + amber warmth glow — cinematic screen feel */
+.section-conversation::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(10,9,7,0.22) 3px,
+      rgba(10,9,7,0.22) 4px
+    ),
+    radial-gradient(ellipse 70% 40% at 20% 78%, rgba(184,122,61,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 80% 20%, rgba(8,45,65,0.18)   0%, transparent 55%);
 }
 
 .conversation-body { display: flex; flex-direction: column; gap: 2rem; }
@@ -822,6 +919,8 @@ section { position: relative; }
   color: var(--fg-muted);
   text-transform: uppercase;
   margin-top: 4rem;
+  position: relative;
+  z-index: 2;
 }
 
 /* ── REVEAL ANIMATION BASE STATE ──────────────────────────────────────── */
