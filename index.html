@@ -19,7 +19,6 @@
     <a href="#hero" class="nav-logo" aria-label="Flamingo Motel Ana Sayfa">
       <img src="/flamingo-motel-logo.svg" alt="Flamingo Motel" width="160" height="46" />
     </a>
-
     <ul class="nav-links">
       <li><a href="#reviews"  data-label="Yorumlar">I</a></li>
       <li><a href="#services" data-label="Hizmetler">II</a></li>
@@ -27,33 +26,24 @@
       <li><a href="#approach" data-label="Felsefemiz">IV</a></li>
       <li><a href="#contact"  data-label="İletişim">V</a></li>
     </ul>
-
-    <a href="https://wa.me/905345001188" target="_blank" rel="noopener" class="nav-cta">
-      Randevu Al
-    </a>
+    <a href="https://wa.me/905345001188" target="_blank" rel="noopener" class="nav-cta">Randevu Al</a>
   </nav>
 
   <!-- ── HERO ─────────────────────────────────────────────────────────── -->
   <section class="hero" id="hero">
 
-    <!-- Hidden image pool — JS reads srcs from here -->
-    <div class="hero-media-pool" aria-hidden="true">
-      <img src="/images/img1.jpg"  alt="" />
-      <img src="/images/img2.png"  alt="" />
-      <img src="/images/img3.png"  alt="" />
-      <img src="/images/img4.png"  alt="" />
-      <img src="/images/img5.png"  alt="" />
-      <img src="/images/img6.png"  alt="" />
-      <img src="/images/img7.png"  alt="" />
-      <img src="/images/img8.png"  alt="" />
-      <img src="/images/img9.png"  alt="" />
-      <img src="/images/img10.png" alt="" />
+    <!-- Cinematic slideshow — drone + sea + exterior, Ken Burns motion -->
+    <div class="hero-slideshow" aria-hidden="true">
+      <div class="slide slide-1" style="background-image:url('/images/img3.png')"></div>
+      <div class="slide slide-2" style="background-image:url('/images/img2.png')"></div>
+      <div class="slide slide-3" style="background-image:url('/images/img1.jpg')"></div>
     </div>
 
-    <!-- Subtle center vignette so text stays readable -->
-    <div class="hero-vignette" aria-hidden="true"></div>
+    <!-- Dark overlays — bottom and left for text legibility -->
+    <div class="hero-overlay-bottom" aria-hidden="true"></div>
+    <div class="hero-overlay-left"   aria-hidden="true"></div>
 
-    <!-- Content — centered, z above falling images -->
+    <!-- Content -->
     <div class="hero-content">
       <p class="hero-label">Gelibolu · Güneyli · Çanakkale</p>
 
@@ -69,12 +59,7 @@
       </p>
 
       <div class="hero-cta-row">
-        <a
-          href="https://wa.me/905345001188"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-primary"
-        >
+        <a href="https://wa.me/905345001188" target="_blank" rel="noopener noreferrer" class="btn-primary">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
             <path d="M11.99 2C6.469 2 2 6.486 2 12.023c0 1.76.454 3.414 1.243 4.857L2.05 21.965l5.224-1.38A9.95 9.95 0 0 0 12 21.987c5.521 0 9.99-4.486 9.99-10.023C21.99 6.468 17.511 2 11.99 2zm0 18.389a8.29 8.29 0 0 1-4.223-1.151l-.302-.18-3.1.819.828-3.028-.196-.312A8.318 8.318 0 0 1 3.67 12c0-4.609 3.75-8.357 8.32-8.357 4.569 0 8.32 3.748 8.32 8.357 0 4.609-3.751 8.357-8.32 8.357z"/>
@@ -85,29 +70,29 @@
       </div>
     </div>
 
-    <!-- Bottom-left location -->
+    <!-- Slide counter — bottom right -->
+    <div class="hero-slide-counter" aria-hidden="true">
+      <span class="counter-current">01</span>
+      <span class="counter-sep"></span>
+      <span class="counter-total">03</span>
+    </div>
+
+    <!-- Bottom-left location + clock -->
     <div class="hero-location">
-      <span class="hero-coords-text">40.4030° N · 26.6786° E</span>
+      <span>40.4030° N · 26.6786° E</span>
       <span class="coords-divider"></span>
       <span id="live-time">00:00:00</span>
     </div>
 
     <!-- Bottom-right mini map -->
-    <a
-      href="https://maps.google.com/?q=Flamingo+Motel+Güneyli+Gelibolu"
-      target="_blank"
-      rel="noopener"
-      class="hero-minimap"
-      aria-label="Konumumuzu Google Maps'te gör"
-    >
+    <a href="https://maps.google.com/?q=Flamingo+Motel+Güneyli+Gelibolu" target="_blank" rel="noopener" class="hero-minimap" aria-label="Konumumuzu Google Maps'te gör">
       <svg class="minimap-svg" viewBox="0 0 110 70" xmlns="http://www.w3.org/2000/svg">
         <line x1="0"  y1="23" x2="110" y2="23" stroke="rgba(237,232,223,0.1)" stroke-width="0.5"/>
         <line x1="0"  y1="46" x2="110" y2="46" stroke="rgba(237,232,223,0.1)" stroke-width="0.5"/>
         <line x1="27" y1="0"  x2="27"  y2="70" stroke="rgba(237,232,223,0.1)" stroke-width="0.5"/>
         <line x1="55" y1="0"  x2="55"  y2="70" stroke="rgba(237,232,223,0.1)" stroke-width="0.5"/>
         <line x1="83" y1="0"  x2="83"  y2="70" stroke="rgba(237,232,223,0.1)" stroke-width="0.5"/>
-        <path d="M 30 5 C 38 12 44 22 46 32 C 48 42 44 55 38 62 C 48 58 56 46 58 35 C 60 22 54 10 46 5 Z"
-              fill="rgba(184,122,61,0.12)" stroke="rgba(184,122,61,0.35)" stroke-width="0.8"/>
+        <path d="M 30 5 C 38 12 44 22 46 32 C 48 42 44 55 38 62 C 48 58 56 46 58 35 C 60 22 54 10 46 5 Z" fill="rgba(184,122,61,0.12)" stroke="rgba(184,122,61,0.35)" stroke-width="0.8"/>
         <circle cx="42" cy="36" r="4" fill="none" stroke="#b87a3d" stroke-width="1.2" opacity="0.7"/>
         <circle cx="42" cy="36" r="2" fill="#b87a3d"/>
         <circle class="map-pulse" cx="42" cy="36" r="4" fill="none" stroke="#b87a3d" stroke-width="0.8"/>
@@ -115,8 +100,6 @@
       <span class="minimap-label">Güneyli, Gelibolu</span>
     </a>
 
-    <!-- Hint text for interaction -->
-    <p class="hero-hint" aria-hidden="true">fareyi hareket ettir</p>
   </section>
 
   <!-- ── PAGE STACK ────────────────────────────────────────────────────── -->
@@ -130,51 +113,32 @@
           <p class="section-eyebrow reveal-text">Misafir Yorumları</p>
           <h2 class="section-heading reveal-text">Misafirlerimiz<br />Ne Diyor?</h2>
           <p class="reviews-intro reveal-text">116'dan fazla mutlu misafirin deneyimlerini okuyun. Google'da 4.7 yıldız puanımızla hizmet veriyoruz.</p>
-
           <div class="reviews-grid">
             <article class="review-card reveal-text">
               <div class="review-stars">★★★★★</div>
-              <blockquote class="review-text">
-                "Harika bir deneyimdi! Denize çok yakın, odalar temiz ve ferah. Kahvaltı muhteşemdi — ev yapımı reçeller ve taze ürünler. Personel çok sıcakkanlı. Kesinlikle tekrar geleceğiz!"
-              </blockquote>
+              <blockquote class="review-text">"Harika bir deneyimdi! Denize çok yakın, odalar temiz ve ferah. Kahvaltı muhteşemdi — ev yapımı reçeller ve taze ürünler. Personel çok sıcakkanlı. Kesinlikle tekrar geleceğiz!"</blockquote>
               <footer class="review-footer">
                 <div class="review-avatar">A</div>
-                <div>
-                  <p class="review-name">Ayşe Kaya</p>
-                  <p class="review-meta">İstanbul · Ekim 2024</p>
-                </div>
+                <div><p class="review-name">Ayşe Kaya</p><p class="review-meta">İstanbul · Ekim 2024</p></div>
               </footer>
             </article>
-
             <article class="review-card review-card--accent reveal-text">
               <div class="review-stars">★★★★★</div>
-              <blockquote class="review-text">
-                "Yıl dönümümüzü burada geçirdik ve mükemmeldi. Sakin, huzurlu bir yer. Akşam yemekleri lezzetliydi, manzara inanılmazdı. Her şey için teşekkürler!"
-              </blockquote>
+              <blockquote class="review-text">"Yıl dönümümüzü burada geçirdik ve mükemmeldi. Sakin, huzurlu bir yer. Akşam yemekleri lezzetliydi, manzara inanılmazdı. Her şey için teşekkürler!"</blockquote>
               <footer class="review-footer">
                 <div class="review-avatar">M</div>
-                <div>
-                  <p class="review-name">Mehmet &amp; Fatma Demir</p>
-                  <p class="review-meta">Ankara · Ağustos 2024</p>
-                </div>
+                <div><p class="review-name">Mehmet &amp; Fatma Demir</p><p class="review-meta">Ankara · Ağustos 2024</p></div>
               </footer>
             </article>
-
             <article class="review-card reveal-text">
               <div class="review-stars">★★★★★</div>
-              <blockquote class="review-text">
-                "Tatil için mükemmel bir yer! Plaja çok yakın, lezzetli kahvaltı, dostane personel. Deniz temiz, sakin ve huzurlu. Kesinlikle geri döneceğiz."
-              </blockquote>
+              <blockquote class="review-text">"Tatil için mükemmel bir yer! Plaja çok yakın, lezzetli kahvaltı, dostane personel. Deniz temiz, sakin ve huzurlu. Kesinlikle geri döneceğiz."</blockquote>
               <footer class="review-footer">
                 <div class="review-avatar">A</div>
-                <div>
-                  <p class="review-name">Aleksey V.</p>
-                  <p class="review-meta">Sofya, Bulgaristan · Temmuz 2024</p>
-                </div>
+                <div><p class="review-name">Aleksey V.</p><p class="review-meta">Sofya, Bulgaristan · Temmuz 2024</p></div>
               </footer>
             </article>
           </div>
-
           <div class="reviews-photo-strip reveal-text">
             <div class="strip-img" style="background-image:url('/images/img2.png')"></div>
             <div class="strip-img" style="background-image:url('/images/img9.png')"></div>
@@ -193,31 +157,11 @@
           <p class="section-eyebrow reveal-text">Hizmetlerimiz</p>
           <h2 class="section-heading reveal-text">Ne<br />Sunuyoruz</h2>
           <ul class="practice-list">
-            <li class="practice-item reveal-text">
-              <span class="practice-num">01</span>
-              <span class="practice-name">7/24 İlgi</span>
-              <span class="practice-desc">Her saatte yanınızdayız. İhtiyacınız olduğunda sizi duymak, yardımcı olmak önceliğimizdir.</span>
-            </li>
-            <li class="practice-item reveal-text">
-              <span class="practice-num">02</span>
-              <span class="practice-name">Ücretsiz Wi-Fi</span>
-              <span class="practice-desc">Tüm alanlarda hızlı ve kesintisiz internet bağlantısı ücretsiz sunulmaktadır.</span>
-            </li>
-            <li class="practice-item reveal-text">
-              <span class="practice-num">03</span>
-              <span class="practice-name">Sabah Kahvaltısı</span>
-              <span class="practice-desc">Köy yumurtası, ev reçelleri, organik bal, taze sebzeler ve yerel peynirlerle açık büfe. 09:00 – 11:00</span>
-            </li>
-            <li class="practice-item reveal-text">
-              <span class="practice-num">04</span>
-              <span class="practice-name">Akşam Yemeği</span>
-              <span class="practice-desc">Her gün değişen menü; mevsim sebzeleri, taze balık ve geleneksel Türk mutfağından özel tatlar. 19:00 – 21:30</span>
-            </li>
-            <li class="practice-item reveal-text">
-              <span class="practice-num">05</span>
-              <span class="practice-name">Oturma &amp; Sohbet Alanları</span>
-              <span class="practice-desc">Bahçede ve ortak alanlarda rahat sohbet köşeleri — çay eşliğinde sakin akşamlar için.</span>
-            </li>
+            <li class="practice-item reveal-text"><span class="practice-num">01</span><span class="practice-name">7/24 İlgi</span><span class="practice-desc">Her saatte yanınızdayız. İhtiyacınız olduğunda sizi duymak, yardımcı olmak önceliğimizdir.</span></li>
+            <li class="practice-item reveal-text"><span class="practice-num">02</span><span class="practice-name">Ücretsiz Wi-Fi</span><span class="practice-desc">Tüm alanlarda hızlı ve kesintisiz internet bağlantısı ücretsiz sunulmaktadır.</span></li>
+            <li class="practice-item reveal-text"><span class="practice-num">03</span><span class="practice-name">Sabah Kahvaltısı</span><span class="practice-desc">Köy yumurtası, ev reçelleri, organik bal, taze sebzeler ve yerel peynirlerle açık büfe. 09:00 – 11:00</span></li>
+            <li class="practice-item reveal-text"><span class="practice-num">04</span><span class="practice-name">Akşam Yemeği</span><span class="practice-desc">Her gün değişen menü; mevsim sebzeleri, taze balık ve geleneksel Türk mutfağından özel tatlar. 19:00 – 21:30</span></li>
+            <li class="practice-item reveal-text"><span class="practice-num">05</span><span class="practice-name">Oturma &amp; Sohbet Alanları</span><span class="practice-desc">Bahçede ve ortak alanlarda rahat sohbet köşeleri — çay eşliğinde sakin akşamlar için.</span></li>
           </ul>
         </div>
       </div>
@@ -233,37 +177,23 @@
           <div class="field-grid">
             <article class="field-card reveal-text">
               <div class="field-card-img" style="background-image:url('/images/img4.png')"></div>
-              <div class="field-card-info">
-                <p class="field-card-client">Standart Oda · 18 m²</p>
-                <p class="field-card-year">2 Kişi</p>
-              </div>
+              <div class="field-card-info"><p class="field-card-client">Standart Oda · 18 m²</p><p class="field-card-year">2 Kişi</p></div>
             </article>
             <article class="field-card reveal-text">
               <div class="field-card-img" style="background-image:url('/images/img5.png')"></div>
-              <div class="field-card-info">
-                <p class="field-card-client">Çift Kişilik Oda · 22 m²</p>
-                <p class="field-card-year">2 Kişi</p>
-              </div>
+              <div class="field-card-info"><p class="field-card-client">Çift Kişilik Oda · 22 m²</p><p class="field-card-year">2 Kişi</p></div>
             </article>
             <article class="field-card reveal-text">
               <div class="field-card-img" style="background-image:url('/images/img6.png')"></div>
-              <div class="field-card-info">
-                <p class="field-card-client">Aile Odası · 32 m²</p>
-                <p class="field-card-year">4 Kişi</p>
-              </div>
+              <div class="field-card-info"><p class="field-card-client">Aile Odası · 32 m²</p><p class="field-card-year">4 Kişi</p></div>
             </article>
             <article class="field-card reveal-text">
               <div class="field-card-img" style="background-image:url('/images/img10.png')"></div>
-              <div class="field-card-info">
-                <p class="field-card-client">Bahçe &amp; Dış Alan</p>
-                <p class="field-card-year">Ortak Alan</p>
-              </div>
+              <div class="field-card-info"><p class="field-card-client">Bahçe &amp; Dış Alan</p><p class="field-card-year">Ortak Alan</p></div>
             </article>
           </div>
           <div class="field-cta reveal-text">
-            <a href="https://wa.me/905345001188" target="_blank" rel="noopener" class="btn-primary">
-              Rezervasyon Yap
-            </a>
+            <a href="https://wa.me/905345001188" target="_blank" rel="noopener" class="btn-primary">Rezervasyon Yap</a>
           </div>
         </div>
       </div>
@@ -277,18 +207,9 @@
           <p class="section-eyebrow reveal-text">Felsefemiz</p>
           <h2 class="section-heading reveal-text">Neden<br />Flamingo?</h2>
           <div class="approach-cols">
-            <div class="approach-col reveal-text">
-              <h3>Misafir Her Zaman Önce</h3>
-              <p>Kapıdan girdiğiniz andan ayrılışınıza kadar her anınızı düşünürüz. Küçük ayrıntılar büyük fark yaratır.</p>
-            </div>
-            <div class="approach-col reveal-text">
-              <h3>Deniz ile Doğanın İçinde</h3>
-              <p>Güneyli kıyısının eşsiz manzarası, sabah esintisi ve tarihin kokladığı topraklarda gerçek bir dinlenme deneyimi.</p>
-            </div>
-            <div class="approach-col reveal-text">
-              <h3>Ev Sıcaklığında Konaklama</h3>
-              <p>2022'den bu yana aile işletmesi olarak; sıcak karşılama, ev yemekleri ve samimi ilgiyle farklı bir tatil anlayışı sunuyoruz.</p>
-            </div>
+            <div class="approach-col reveal-text"><h3>Misafir Her Zaman Önce</h3><p>Kapıdan girdiğiniz andan ayrılışınıza kadar her anınızı düşünürüz. Küçük ayrıntılar büyük fark yaratır.</p></div>
+            <div class="approach-col reveal-text"><h3>Deniz ile Doğanın İçinde</h3><p>Güneyli kıyısının eşsiz manzarası, sabah esintisi ve tarihin kokladığı topraklarda gerçek bir dinlenme deneyimi.</p></div>
+            <div class="approach-col reveal-text"><h3>Ev Sıcaklığında Konaklama</h3><p>2022'den bu yana aile işletmesi olarak; sıcak karşılama, ev yemekleri ve samimi ilgiyle farklı bir tatil anlayışı sunuyoruz.</p></div>
           </div>
         </div>
       </div>
@@ -301,12 +222,8 @@
         <div class="conversation-body">
           <p class="section-eyebrow reveal-text">İletişim</p>
           <h2 class="conversation-heading reveal-text">Rezervasyon &amp;<br />Bilgi Alın.</h2>
-          <p class="conversation-sub reveal-text">
-            Rezervasyon, fiyat ve uygunluk sorularınız için WhatsApp'tan bize ulaşabilirsiniz. En kısa sürede yanıt vereceğiz.
-          </p>
-          <a href="https://wa.me/905345001188" target="_blank" rel="noopener" class="conversation-email reveal-text">
-            +90 534 500 11 88
-          </a>
+          <p class="conversation-sub reveal-text">Rezervasyon, fiyat ve uygunluk sorularınız için WhatsApp'tan bize ulaşabilirsiniz. En kısa sürede yanıt vereceğiz.</p>
+          <a href="https://wa.me/905345001188" target="_blank" rel="noopener" class="conversation-email reveal-text">+90 534 500 11 88</a>
           <div class="conversation-meta reveal-text">
             <div class="contact-info-block">
               <p class="contact-info-label">Adres</p>
@@ -327,7 +244,6 @@
           </div>
         </div>
       </div>
-
       <footer class="site-footer">
         <span>© 2025 Flamingo Motel</span>
         <span>Güneyli · Gelibolu · Çanakkale</span>
@@ -335,7 +251,7 @@
       </footer>
     </section>
 
-  </div><!-- /page-stack -->
+  </div>
 
   <script type="module" src="/src/script.js"></script>
 </body>

@@ -7,5 +7,13 @@ export default defineConfig({
   },
   build: {
     target: 'es2020',
+    chunkSizeWarningLimit: 700,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          motion: ['gsap', 'lenis'],
+        },
+      },
+    },
   },
 });
