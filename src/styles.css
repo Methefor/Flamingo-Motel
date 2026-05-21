@@ -45,6 +45,31 @@ body { overflow-x: hidden; }
   transition: background 0.4s var(--ease-out), padding 0.3s var(--ease-out);
 }
 
+/* Animated wave shimmer line along the nav bottom */
+.site-nav::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent           0%,
+    rgba(184,122,61,0.55) 20%,
+    rgba(237,232,223,0.40) 50%,
+    rgba(184,122,61,0.55) 80%,
+    transparent           100%
+  );
+  background-size: 300% 100%;
+  animation: navWave 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes navWave {
+  0%   { background-position: 100% 0; opacity: 0.35; }
+  40%  { background-position:   0% 0; opacity: 1;    }
+  100% { background-position: 100% 0; opacity: 0.35; }
+}
+
 .site-nav.scrolled {
   background: rgba(10, 9, 7, 0.88);
   backdrop-filter: blur(14px);
@@ -86,6 +111,20 @@ body { overflow-x: hidden; }
   padding: 0.25rem 0;
 }
 
+/* Subtle idle pulse on each numeral — staggered via nth-child */
+.nav-links li:nth-child(1) a { animation: navPulse 7s ease-in-out infinite 0.0s; }
+.nav-links li:nth-child(2) a { animation: navPulse 7s ease-in-out infinite 1.4s; }
+.nav-links li:nth-child(3) a { animation: navPulse 7s ease-in-out infinite 2.8s; }
+.nav-links li:nth-child(4) a { animation: navPulse 7s ease-in-out infinite 4.2s; }
+.nav-links li:nth-child(5) a { animation: navPulse 7s ease-in-out infinite 5.6s; }
+
+@keyframes navPulse {
+  0%   { color: rgba(237,232,223,0.45); }
+  18%  { color: rgba(237,232,223,0.85); }
+  36%  { color: rgba(237,232,223,0.45); }
+  100% { color: rgba(237,232,223,0.45); }
+}
+
 .nav-links a::after {
   content: attr(data-label);
   position: absolute;
@@ -115,6 +154,33 @@ body { overflow-x: hidden; }
   padding: 0.5rem 1.1rem;
   transition: border-color 0.25s, background 0.25s, color 0.25s;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light sweep animation on Randevu Al button */
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(237,232,223,0.18),
+    transparent
+  );
+  transform: skewX(-18deg);
+  animation: navCtaSweep 5s ease-in-out infinite 1.5s;
+  pointer-events: none;
+}
+
+@keyframes navCtaSweep {
+  0%   { left: -80%; }
+  28%  { left: 140%;  }
+  100% { left: 140%;  }
 }
 
 .nav-cta:hover {
