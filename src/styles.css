@@ -147,24 +147,39 @@ body { overflow-x: hidden; }
   background-position: center;
   opacity: 0; /* JS reveals slide-1 on boot */
   will-change: opacity, transform;
+  /* Cinematic color grade: warm highlights, lifted contrast */
+  filter: saturate(1.18) contrast(1.06) brightness(0.97);
 }
 
-/* Ken Burns motion — each slide gets a different drift direction */
-.slide-1 { animation: kenBurns1 24s ease-in-out infinite alternate; }
-.slide-2 { animation: kenBurns2 24s ease-in-out infinite alternate; }
-.slide-3 { animation: kenBurns3 24s ease-in-out infinite alternate; }
+/* Film grain overlay — adds texture/depth to high-res photos */
+.hero-slideshow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Ken Burns — slower, more cinematic drift */
+.slide-1 { animation: kenBurns1 30s ease-in-out infinite alternate; }
+.slide-2 { animation: kenBurns2 30s ease-in-out infinite alternate; }
+.slide-3 { animation: kenBurns3 30s ease-in-out infinite alternate; }
 
 @keyframes kenBurns1 {
-  0%   { transform: scale(1.08) translate( 0%,    0%); }
-  100% { transform: scale(1.00) translate(-1.5%, -0.8%); }
+  0%   { transform: scale(1.12) translate( 0%,    0%); }
+  100% { transform: scale(1.00) translate(-2.0%, -1.2%); }
 }
 @keyframes kenBurns2 {
-  0%   { transform: scale(1.00) translate( 1.5%,  0.5%); }
-  100% { transform: scale(1.08) translate(-0.5%, -1.0%); }
+  0%   { transform: scale(1.00) translate( 2.0%,  1.0%); }
+  100% { transform: scale(1.12) translate(-1.0%, -1.8%); }
 }
 @keyframes kenBurns3 {
-  0%   { transform: scale(1.06) translate(-1.0%,  0.5%); }
-  100% { transform: scale(1.00) translate( 1.0%, -0.5%); }
+  0%   { transform: scale(1.10) translate(-1.5%,  0.8%); }
+  100% { transform: scale(1.00) translate( 1.5%, -1.0%); }
 }
 
 /* ── HERO OVERLAYS ────────────────────────────────────────────────────── */
@@ -195,6 +210,17 @@ body { overflow-x: hidden; }
     rgba(10,9,7,0.30) 40%,
     transparent 65%
   );
+}
+
+/* Top vignette + radial corner darken — cinematic lens falloff */
+.hero-overlay-top {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(10,9,7,0.55) 0%, transparent 28%),
+    radial-gradient(ellipse at center, transparent 45%, rgba(10,9,7,0.50) 100%);
 }
 
 .hero-content {
@@ -846,7 +872,6 @@ section { position: relative; }
 @media (max-width: 600px) {
   .hero-headline { font-size: clamp(48px, 13vw, 72px); }
   .hero-minimap { display: none; }
-  .hero-falling-img { width: 42vw; height: 30vw; }
   .btn-primary { width: 100%; justify-content: center; }
   .hero-cta-row { flex-direction: column; }
   .reviews-photo-strip { grid-template-columns: repeat(2, 1fr); }
