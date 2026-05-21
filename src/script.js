@@ -200,12 +200,21 @@ function initGallery() {
   document.getElementById('lbNext').addEventListener('click',  () => open(current + 1));
   lb.addEventListener('click', e => { if (e.target === lb) close(); });
 
+  // Keyboard
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('active')) return;
     if (e.key === 'Escape')     close();
     if (e.key === 'ArrowLeft')  open(current - 1);
     if (e.key === 'ArrowRight') open(current + 1);
   });
+
+  // Touch swipe
+  let touchX = 0;
+  lb.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    const diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 48) open(diff > 0 ? current + 1 : current - 1);
+  }, { passive: true });
 }
 
 // ── LANGUAGE SWITCHER ─────────────────────────────────────────────────────
