@@ -75,12 +75,16 @@
 </head>
 <body>
 
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- ── PRELOADER ─────────────────────────────────────────────────────── -->
   <div id="preloader" aria-hidden="true">
     <div class="preloader-inner">
       <img src="/flamingo-motel-logo.svg" alt="Flamingo Motel" class="preloader-logo" />
       <div class="preloader-bar"></div>
       <p class="preloader-tagline">Güneyli · Gelibolu</p>
+      <span class="preloader-percent" aria-hidden="true"></span>
     </div>
   </div>
 
@@ -177,6 +181,11 @@
       <span class="minimap-label">Güneyli, Gelibolu</span>
     </a>
 
+    <!-- Scroll down indicator — center bottom -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span class="scroll-hint-line"></span>
+    </div>
+
   </section>
 
   <!-- ── PAGE STACK ────────────────────────────────────────────────────── -->
@@ -189,6 +198,15 @@
         <div class="reviews-body">
           <p class="section-eyebrow reveal-text">Misafir Yorumları</p>
           <h2 class="section-heading reveal-text">Misafirlerimiz<br />Ne Diyor?</h2>
+          <div class="reviews-rating-badge reveal-text">
+            <span class="badge-num">4.7</span>
+            <div class="badge-info">
+              <div class="badge-stars">★★★★★</div>
+              <p class="badge-platform">Google Reviews</p>
+              <p class="badge-count">116 Değerlendirme</p>
+            </div>
+            <a href="https://maps.google.com/?q=Flamingo+Motel+G%C3%BCneyli+Gelibolu" target="_blank" rel="noopener noreferrer" class="badge-cta">Tüm Yorumları Gör ↗</a>
+          </div>
           <p class="reviews-intro reveal-text">116'dan fazla mutlu misafirin deneyimlerini okuyun. Google'da 4.7 yıldız puanımızla hizmet veriyoruz.</p>
           <div class="reviews-grid">
             <article class="review-card reveal-text">
@@ -254,18 +272,22 @@
           <div class="field-grid">
             <article class="field-card reveal-text">
               <div class="field-card-img" style="background-image:url('/G%C3%BCneyli%20denizi%20ai.png')"></div>
+              <div class="field-card-overlay"><a href="https://wa.me/905345001188" target="_blank" rel="noopener" class="field-overlay-cta">Rezervasyon Yap</a></div>
               <div class="field-card-info"><p class="field-card-client">Deniz Alanı</p><p class="field-card-year">Ortak Alan</p></div>
             </article>
             <article class="field-card reveal-text">
               <div class="field-card-img" style="background-image:url('/images/img8.png')"></div>
+              <div class="field-card-overlay"><a href="https://wa.me/905345001188" target="_blank" rel="noopener" class="field-overlay-cta">Rezervasyon Yap</a></div>
               <div class="field-card-info"><p class="field-card-client">Kahvaltı &amp; Yemek Alanı</p><p class="field-card-year">Ortak Alan</p></div>
             </article>
             <article class="field-card reveal-text">
               <div class="field-card-img" style="background-image:url('/images/img6.png')"></div>
+              <div class="field-card-overlay"><a href="https://wa.me/905345001188" target="_blank" rel="noopener" class="field-overlay-cta">Rezervasyon Yap</a></div>
               <div class="field-card-info"><p class="field-card-client">Oda</p><p class="field-card-year">Konaklama</p></div>
             </article>
             <article class="field-card reveal-text">
               <div class="field-card-img" style="background-image:url('/images/img10.png')"></div>
+              <div class="field-card-overlay"><a href="https://wa.me/905345001188" target="_blank" rel="noopener" class="field-overlay-cta">Rezervasyon Yap</a></div>
               <div class="field-card-info"><p class="field-card-client">Kahvaltı Alanı</p><p class="field-card-year">Ortak Alan</p></div>
             </article>
           </div>
@@ -358,7 +380,11 @@
       <footer class="site-footer">
         <span>© 2025 Flamingo Motel</span>
         <span>Güneyli · Gelibolu · Çanakkale</span>
-        <span>Tüm hakları saklıdır</span>
+        <nav class="footer-links" aria-label="Sosyal linkler">
+          <a href="https://instagram.com/flamingomotelgelibolu" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://wa.me/905345001188" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://maps.google.com/?q=Flamingo+Motel+G%C3%BCneyli+Gelibolu" target="_blank" rel="noopener">Google Maps</a>
+        </nav>
       </footer>
     </section>
 
@@ -375,6 +401,7 @@
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
       <path d="M11.99 2C6.469 2 2 6.486 2 12.023c0 1.76.454 3.414 1.243 4.857L2.05 21.965l5.224-1.38A9.95 9.95 0 0 0 12 21.987c5.521 0 9.99-4.486 9.99-10.023C21.99 6.468 17.511 2 11.99 2zm0 18.389a8.29 8.29 0 0 1-4.223-1.151l-.302-.18-3.1.819.828-3.028-.196-.312A8.318 8.318 0 0 1 3.67 12c0-4.609 3.75-8.357 8.32-8.357 4.569 0 8.32 3.748 8.32 8.357 0 4.609-3.751 8.357-8.32 8.357z"/>
     </svg>
+    <span class="fab-tooltip" aria-hidden="true">WhatsApp ile Ulaş</span>
   </a>
 
   <!-- ── LIGHTBOX ───────────────────────────────────────────────────────── -->

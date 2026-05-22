@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="https://flamingo-motel.vercel.app/flamingo-motel-logo.svg" alt="Flamingo Motel" width="220" />
+<img src="https://raw.githubusercontent.com/Methefor/Flamingo-Motel/main/public/flamingo-motel-logo.svg" alt="Flamingo Motel" width="240" />
 
-# Flamingo Motel — Official Website
+<h1>Flamingo Motel</h1>
 
-**A cinematic, multi-language hospitality website built with Vite 5 + GSAP**
+<p><strong>Sinematik, çok dilli otel web sitesi — Gelibolu · Güneyli · Çanakkale</strong></p>
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-flamingo--motel.vercel.app-b87a3d?style=for-the-badge&logo=vercel&logoColor=white)](https://flamingo-motel.vercel.app)
+[![Live Site](https://img.shields.io/badge/🌐_Canlı_Site-flamingo--motel.vercel.app-b87a3d?style=for-the-badge)](https://flamingo-motel.vercel.app)
 &nbsp;
 [![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
 &nbsp;
@@ -14,180 +14,221 @@
 &nbsp;
 [![Vercel](https://img.shields.io/badge/Deployed-Vercel-000?style=for-the-badge&logo=vercel)](https://vercel.com)
 
----
-
-<img src="https://flamingo-motel.vercel.app/Drone%20%C3%A7ekimi%20ai.png" alt="Flamingo Motel — Gelibolu Güneyli aerial view" width="100%" style="border-radius:4px;" />
-
-*Gelibolu · Güneyli · Çanakkale, Türkiye — 40.4030° N · 26.6786° E*
-
 </div>
 
 ---
 
-## Overview
+## Demo
 
-Flamingo Motel is a boutique seafront motel on the Gallipoli Peninsula. This repository contains its complete official website — a **zero-framework, performance-first** implementation that delivers a luxury hospitality experience through cinematic animations, AI-enhanced photography, and a polished multi-language interface.
+> **Canlı:** [flamingo-motel.vercel.app](https://flamingo-motel.vercel.app)
 
-> **Live:** [flamingo-motel.vercel.app](https://flamingo-motel.vercel.app)
-
----
-
-## Features
-
-### Cinematic Visual Experience
-- **AI-Enhanced Hero Slideshow** — Three high-quality AI-upscaled photos (drone aerial, coastline, motel exterior) with Ken Burns motion (30 s slow pan), GSAP crossfade, and hover-pause
-- **Color Grading** — CSS `saturate(1.18) contrast(1.06)` on every slide for a rich, warm palette
-- **Film Grain Overlay** — SVG `feTurbulence` fractalNoise at 4.5% opacity for a high-end photographic texture
-- **Cinematic Vignette** — Triple-layer gradient: bottom fade, left veil, and radial lens falloff
-- **Section Backgrounds** — Each page section has its own AI-photo backdrop with independent overlay tuning
-
-### Animated Navigation
-- **Amber Wave Shimmer** — Gradient line sweeps the nav bottom edge on a 5-second loop
-- **Button Light Sweep** — "Book Now" CTA has a 28° skewed light pass every 5 seconds
-- **Staggered Numeral Pulse** — Roman numerals (I–V) breathe in sequence with 1.4 s offset
-
-### Preloader
-- Logo fade-in with scale spring, amber draw-line, location tagline — all CSS keyframe animation
-- Hero entrance sequence (headline reveal, label slide, CTA appear) starts *after* the preloader exits
-
-### Scroll & Motion
-- **Lenis** smooth scroll (duration 1.4 s, exponential easing) as the single scroll source
-- **GSAP ScrollTrigger** for reveal animations: text slides up, practice items stagger left, room cards scale in
-- **Sticky hero** that stays fixed while the page stack scrolls over it
-
-### Photo Gallery & Lightbox
-- 10-image editorial grid — featured hero shot spans 2×2, secondary image spans 2 wide
-- Full-screen lightbox with scale entrance animation
-- **Keyboard navigation** (← → Escape) + **touch swipe** (≥ 48 px threshold) for mobile
-- Image counter (1 / 10 style)
-
-### 4-Language Interface
-Full translation coverage across **TR · EN · BG · EL** (Turkish, English, Bulgarian, Greek):
-- Nav labels, hero headline & subtitle, all section eyebrows/headings
-- Service item names & descriptions, room card labels, approach philosophy columns
-- Contact section, address (country name localized), footer
-- Language persisted in `localStorage` — survives page refresh
-- `lang` attribute on `<html>` updated for accessibility
-
-### Floating WhatsApp Button
-- Enters with spring animation once the hero scrolls out of view (GSAP ScrollTrigger)
-- iOS safe-area aware (`env(safe-area-inset-bottom)`)
-- Green glow deepens on hover
-
-### Google Maps Embed
-- Precise coordinates (40.4030° N, 26.6786° E) — no API key required
-- Grayscale + contrast filter that color-reveals on hover
-
-### SEO & Social
-- **OpenGraph** — title, description, image, url, locale
-- **Twitter Card** — `summary_large_image`
-- **Schema.org `LodgingBusiness`** — name, address, geo, phone, images, aggregate rating (4.7 ★ / 116 reviews), amenity features
-
-### Mobile-First Responsive
-| Breakpoint | Behaviour |
-|---|---|
-| > 1024 px | Full 4-col gallery, 3-col reviews, desktop nav |
-| 900–1024 px | 3-col gallery, reviews stack |
-| 600–900 px | 2-col gallery, map 260 px, compact lang switcher |
-| < 600 px | Lang switcher hidden, swipe lightbox, iOS safe area FAB, map 200 px |
-
----
-
-## Technology Stack
-
-| Tool | Version | Role |
-|---|---|---|
-| **Vite** | 5.4 | Build tool, dev server, module bundler |
-| **GSAP + ScrollTrigger** | 3.12 | All animations — entrance, scroll reveal, counter |
-| **Lenis** | 1.1 | Smooth scroll driver |
-| **Vanilla JavaScript** | ES2020 | No framework — minimal footprint |
-| **CSS Custom Properties** | — | Design tokens (color, easing, typography) |
-| **Cormorant Garamond** | 300 / 400 / 500 | Display serif (headlines) |
-| **Manrope** | 300–600 | UI sans-serif (body, nav, labels) |
-| **Vercel** | — | Deployment & CDN |
-
-**Bundle (gzipped):** ~140 KB total — `gsap + lenis` isolated in their own chunk via `manualChunks`.
-
----
-
-## Project Structure
-
-```
-meridian-studio/
-├── public/
-│   ├── flamingo-motel-logo.svg      # SVG brand mark
-│   ├── Drone çekimi ai.png          # AI-enhanced aerial hero
-│   ├── Güneyli denizi ai.png        # AI-enhanced sea hero
-│   ├── Flamingo motel ai.png        # AI-enhanced exterior hero
-│   └── images/                      # Original motel photography (10 photos)
-├── src/
-│   ├── script.js                    # Boot, slideshow, gallery, i18n, preloader, FAB
-│   ├── styles.css                   # All styles — tokens, layout, animations, responsive
-│   ├── translations.js              # TR / EN / BG / EL string maps
-│   └── shaders.js                   # (legacy, unused — kept for reference)
-├── index.html                       # Single-page document with Schema.org + OG
-├── vite.config.js                   # Build config with manualChunks
-└── vercel.json                      # Vercel deployment config
-```
-
----
-
-## Quick Start
-
-```bash
-git clone https://github.com/Methefor/Flamingo-Motel.git
-cd Flamingo-Motel
-npm install
-npm run dev        # http://localhost:5173
-```
-
-```bash
-npm run build      # Production build → dist/
-npm run preview    # Preview the build locally
-```
-
----
-
-## Design System
-
-| Token | Value | Usage |
-|---|---|---|
-| `--bg` | `#0a0907` | Page background |
-| `--fg` | `#ede8df` | Primary text |
-| `--fg-dim` | `rgba(237,232,223,0.45)` | Secondary text |
-| `--accent` | `#b87a3d` | Amber brand colour |
-| `--ease-out` | `cubic-bezier(0.22,1,0.36,1)` | Signature spring easing |
-
----
-
-## Page Sections
-
-| # | Section | Background | Language Support |
-|---|---|---|---|
-| Hero | Cinematic slideshow | AI drone · sea · exterior | ✓ |
-| I | Guest Reviews | Güneyli sea photo | ✓ |
-| II | Services | Aerial drone photo | ✓ |
-| III | Rooms | Motel exterior photo | ✓ |
-| · | Photo Gallery | Aerial photo backdrop | ✓ |
-| IV | Why Flamingo | CSS gradient — amber hairlines + radial glows | ✓ |
-| V | Contact | Blurred sea + scan-line overlay | ✓ |
-
----
-
-## Contact
-
-| Channel | Details |
-|---|---|
-| WhatsApp | [+90 534 500 11 88](https://wa.me/905345001188) |
-| Address | Atatürk Sokak No:12, Güneyli, Gelibolu, Çanakkale |
-| Instagram | [@flamingomotelgelibolu](https://instagram.com/flamingomotelgelibolu) |
-| Maps | [Google Maps — 40.4030° N, 26.6786° E](https://maps.google.com/?q=Flamingo+Motel+Güneyli+Gelibolu) |
+[![Flamingo Motel — Web Sitesi Demo](https://img.youtube.com/vi/cbshpoSWgQk/maxresdefault.jpg)](https://youtu.be/cbshpoSWgQk)
 
 ---
 
 <div align="center">
 
-© 2025 Flamingo Motel — All rights reserved  
-Güneyli · Gelibolu · Çanakkale, Türkiye
+### Ekran Görüntüleri
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://raw.githubusercontent.com/Methefor/Flamingo-Motel/main/public/Drone%20%C3%A7ekimi%20ai.png" width="100%" alt="Hero — Drone Çekimi" />
+      <sub><b>Hero · Sinematik Slayt & Ken Burns</b></sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://raw.githubusercontent.com/Methefor/Flamingo-Motel/main/public/G%C3%BCneyli%20denizi%20ai.png" width="100%" alt="Güneyli Denizi" />
+      <sub><b>Reviews · Google 4.7 ★ Rozeti</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://raw.githubusercontent.com/Methefor/Flamingo-Motel/main/public/Flamingo%20motel%20ai.png" width="100%" alt="Flamingo Motel Dış Cephe" />
+      <sub><b>Rooms · Hover Rezervasyon Overlay</b></sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://raw.githubusercontent.com/Methefor/Flamingo-Motel/main/public/images/img8.png" width="100%" alt="Kahvaltı Alanı" />
+      <sub><b>Gallery · Editorial Grid & Lightbox</b></sub>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+---
+
+## Özellikler
+
+### Sinematik Görsel Deneyim
+- **AI-Enhanced Slideshow** — 3 fotoğraf (drone aerial, kıyı, motel dış cephe) 30 saniyelik Ken Burns hareketi, GSAP crossfade geçişi, hover-pause
+- **Film Grain** — SVG `feTurbulence` fractalNoise dokusu (%4.5 opaklık) high-end fotoğraf hissi
+- **Triple Vignette** — Alt fade, sol perde, radial lens falloff ile sinematik çerçeveleme
+- **Color Grade** — Her slaytta `saturate(1.18) contrast(1.06)` ile sıcak amber ton
+- **Scroll Progress Bar** — Sayfa üstünde amber ilerleyici çizgi
+
+### Animasyonlar & Scroll
+- **Lenis** smooth scroll (1.4 s, üstel ease) — tek scroll kaynağı
+- **GSAP ScrollTrigger** — metin yukarı kayar, hizmet kalemleri soldan gelir, oda kartları scale-in ile açılır
+- **Sticky Hero** — page stack hero üzerinden kayarken sabit kalır
+- **Counter Animasyonu** — 4.7 puanı viewport'a girince 0.0'dan sayılır
+- **Preloader Yüzdesi** — 0% → 100% gerçek zamanlı sayaç
+
+### Navigasyon
+- **Amber Wave Shimmer** — Nav alt kenarında 5 saniyelik gradient tarama
+- **Button Light Sweep** — "Randevu Al" butonunda 28° skewed ışık geçişi
+- **Staggered Pulse** — I–V rakamları 1.4 sn gecikmeli ritimle nefes alır
+- **Hover Tooltip** — Roman rakamların altında bölüm adı belirir
+
+### Google Reviews Rozeti
+- **4.7 ★** — 116 Google değerlendirmesi, görünür sayaç animasyonu
+- "Tüm Yorumları Gör" bağlantısı ile Google Maps entegrasyonu
+
+### Oda Kartları
+- Her karta hover'da koyu overlay + **"Rezervasyon Yap"** butonu yukarı kayarak açılır
+- GSAP ile bağımsız image scale + CSS backdrop-filter
+
+### Fotoğraf Galerisi & Lightbox
+- **10 fotoğraflık editorial grid** — featured shot 2×2, ikincil 2 geniş
+- Fullscreen lightbox — scale entrance animasyonu
+- **Klavye** (← → Escape) + **touch swipe** (≥48 px eşik) mobil desteği
+- Hover'da büyüteç ikonu overlay (CSS `::before`)
+- Sayaç: `1 / 10` format
+
+### 4 Dil Desteği
+
+| TR | EN | BG | EL |
+|:---:|:---:|:---:|:---:|
+| Türkçe | İngilizce | Bulgarca | Yunanca |
+
+- Tüm bölümler tam çeviri kapsamında: nav, hero, yorumlar, hizmetler, odalar, galeri, felsefe, iletişim, footer
+- `localStorage`'da dil tercihi kalıcı — sayfa yenilenmesine karşı korumalı
+- `<html lang>` attribute güncelleniyor (erişilebilirlik)
+
+### WhatsApp FAB
+- 100vh scroll sonrası spring animasyonu ile girer
+- **Pulse ring** — yeşil titreşim halkası animasyonu
+- **Tooltip** — hover'da "WhatsApp ile Ulaş" soldan kayar
+- iOS safe-area uyumlu: `env(safe-area-inset-bottom)`
+
+### İletişim & Harita
+- Google Maps embed — 40.4030° N, 26.6786° E hassas koordinat
+- Grayscale filtreli harita → hover'da tam renk açılır
+- `scan-line` texture + ambient glow (cinematic screen efekti)
+
+### SEO & Sosyal
+- **OpenGraph** — başlık, açıklama, görsel, URL, locale
+- **Twitter Card** — `summary_large_image`
+- **Schema.org `LodgingBusiness`** — tam adres, geo, telefon, görseller, 4.7★ aggregate rating
+
+### Mobil-First Responsive
+
+| Ekran | Davranış |
+|---|---|
+| > 1024 px | 4-kolon galeri, 3-kolon yorumlar, tam nav |
+| 900–1024 px | 3-kolon galeri, yorumlar tek kolon |
+| 600–900 px | 2-kolon galeri, kompakt dil seçici |
+| < 600 px | Dil seçici gizli, swipe lightbox, iOS safe-area FAB |
+
+---
+
+## Teknoloji Yığını
+
+| Araç | Versiyon | Rol |
+|---|---|---|
+| **Vite** | 5.4 | Build tool, dev server, modül bundler |
+| **GSAP + ScrollTrigger** | 3.12 | Tüm animasyonlar — giriş, scroll reveal, sayaç |
+| **Lenis** | 1.1 | Smooth scroll sürücüsü |
+| **Vanilla JS** | ES2020 | Framework yok — minimum ayak izi |
+| **CSS Custom Properties** | — | Tasarım tokenları (renk, easing, tipografi) |
+| **Cormorant Garamond** | 300/400/500 | Başlık serif |
+| **Manrope** | 300–600 | UI sans-serif |
+| **Vercel** | — | Deployment & CDN |
+
+**Bundle (gzipped):** `~140 KB` toplam · GSAP + Lenis ayrı chunk
+
+---
+
+## Proje Yapısı
+
+```
+flamingo-motel.com/
+├── public/
+│   ├── flamingo-motel-logo.svg      # SVG marka logosu
+│   ├── Drone çekimi ai.png          # AI-enhanced aerial hero
+│   ├── Güneyli denizi ai.png        # AI-enhanced kıyı hero
+│   ├── Flamingo motel ai.png        # AI-enhanced dış cephe hero
+│   └── images/                      # Orijinal motel fotoğrafları (10 adet)
+├── src/
+│   ├── script.js                    # Boot, slideshow, gallery, i18n, preloader, FAB
+│   ├── styles.css                   # Tüm stiller — tokenlar, layout, animasyonlar
+│   ├── translations.js              # TR / EN / BG / EL string haritaları
+│   └── shaders.js                   # (ilerideki 3D için ayrılmış)
+├── index.html                       # Schema.org + OG meta ile single-page döküman
+├── vite.config.js                   # manualChunks ile build config
+└── vercel.json                      # Vercel deployment config
+```
+
+---
+
+## Kurulum
+
+```bash
+git clone https://github.com/Methefor/Flamingo-Motel.git
+cd Flamingo-Motel
+npm install
+npm run dev        # → http://localhost:5173
+```
+
+```bash
+npm run build      # Production → dist/
+npm run preview    # Build'i local'de önizle
+```
+
+---
+
+## Tasarım Sistemi
+
+| Token | Değer | Kullanım |
+|---|---|---|
+| `--bg` | `#0a0907` | Sayfa arka planı |
+| `--fg` | `#ede8df` | Ana metin |
+| `--fg-dim` | `rgba(237,232,223,0.45)` | İkincil metin |
+| `--accent` | `#b87a3d` | Amber marka rengi |
+| `--serif` | Cormorant Garamond | Başlıklar |
+| `--sans` | Manrope | UI metni |
+| `--ease-out` | `cubic-bezier(0.22,1,0.36,1)` | İmza spring easing |
+
+---
+
+## Bölümler
+
+| # | Bölüm | Arka Plan | Dil Desteği |
+|---|---|---|---|
+| Hero | Sinematik slayt · 3 slide | AI drone · deniz · dış cephe | ✓ |
+| I | Misafir Yorumları + Google Rozeti | Güneyli denizi | ✓ |
+| II | Hizmetler | Drone aerial | ✓ |
+| III | Odalar + Hover Overlay | Motel dış cephe | ✓ |
+| · | Galeri + Lightbox | Drone arka planı | ✓ |
+| IV | Neden Flamingo? | CSS gradient — amber hairlines + radial glow | ✓ |
+| V | İletişim + Harita | Blur deniz + scan-line | ✓ |
+
+---
+
+## İletişim
+
+| Kanal | Bilgi |
+|---|---|
+| WhatsApp | [+90 534 500 11 88](https://wa.me/905345001188) |
+| Instagram | [@flamingomotelgelibolu](https://instagram.com/flamingomotelgelibolu) |
+| Adres | Atatürk Sokak No:12, Güneyli, Gelibolu, Çanakkale |
+| Harita | [Google Maps — 40.4030° N, 26.6786° E](https://maps.google.com/?q=Flamingo+Motel+Güneyli+Gelibolu) |
+
+---
+
+<div align="center">
+
+Made with precision for **Flamingo Motel**  
+Güneyli · Gelibolu · Çanakkale, Türkiye  
+© 2025 — Tüm hakları saklıdır
 
 </div>

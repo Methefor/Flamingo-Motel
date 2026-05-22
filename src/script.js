@@ -138,10 +138,20 @@ function initCardHover() {
 
 // ── PRELOADER ─────────────────────────────────────────────────────────────
 function initPreloader() {
-  const pl = document.getElementById('preloader');
+  const pl    = document.getElementById('preloader');
   if (!pl) { initHeroEntrance(); return; }
 
+  const pctEl = pl.querySelector('.preloader-percent');
+
   const start = () => {
+    if (pctEl) {
+      let n = 0;
+      const t = setInterval(() => {
+        n += Math.floor(Math.random() * 11 + 5);
+        if (n >= 100) { n = 100; clearInterval(t); }
+        pctEl.textContent = n + '%';
+      }, 85);
+    }
     setTimeout(() => {
       pl.classList.add('done');
       setTimeout(initHeroEntrance, 700);
@@ -153,6 +163,43 @@ function initPreloader() {
   } else {
     window.addEventListener('load', start, { once: true });
   }
+}
+
+// ── SCROLL PROGRESS BAR ───────────────────────────────────────────────────
+function initScrollProgress() {
+  const bar = document.getElementById('scrollProgress');
+  if (!bar) return;
+  lenis.on('scroll', ({ progress }) => {
+    bar.style.width = (progress * 100).toFixed(2) + '%';
+  });
+}
+
+// ── REVIEWS BADGE COUNTER ─────────────────────────────────────────────────
+function initCounters() {
+  const badge = document.querySelector('.reviews-rating-badge');
+  if (!badge) return;
+
+  let done = false;
+  ScrollTrigger.create({
+    trigger: badge,
+    start: 'top 88%',
+    onEnter: () => {
+      if (done) return;
+      done = true;
+      const numEl = badge.querySelector('.badge-num');
+      if (!numEl) return;
+      const end = 4.7;
+      const dur = 1100;
+      const t0  = performance.now();
+      const tick = now => {
+        const p = Math.min((now - t0) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        numEl.textContent = (ease * end).toFixed(1);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    },
+  });
 }
 
 // ── FLOATING WHATSAPP BUTTON ──────────────────────────────────────────────
@@ -320,6 +367,8 @@ function boot() {
   initNavEffect();
   initCardHover();
   initRevealAnimations();
+  initCounters();
+  initScrollProgress();
   initFAB();
   initGallery();
   initLangSwitcher();
